@@ -38,14 +38,7 @@ kill_timeout = 5
   DBSIZE_MAX = "512"
   DBSIZE_IN_MIB = "true"
   MONGO_COLLECTION = "entries"
-  
-
-[experimental]
-  allowed_public_ports = []
-  auto_rollback = true
-  cmd = []
-  entrypoint = []
-  exec = []
+  THEME = "colors"
 
 [processes]
   app = "node lib/server/server.js"
@@ -74,4 +67,4 @@ kill_timeout = 5
     grace_period = "1s"
     interval = "15s"
     restart_limit = 0
-    timeout = "5s"
+    timeout = "10s"
