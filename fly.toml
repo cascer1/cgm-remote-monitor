@@ -1,6 +1,6 @@
 # fly.toml file generated for casscout on 2023-01-24T09:30:25+01:00
 
-app = "casscout"
+app = "casscouttwo"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
@@ -35,6 +35,9 @@ kill_timeout = 5
   CAGE_DISPLAY = "HOURS"
   ALARM_TIMEAGO_WARN = "off"
   ALARM_TIMEAGO_URGENT = "off"
+  DBSIZE_MAX = "512"
+  DBSIZE_IN_MIB = "true"
+  MONGO_COLLECTION = "entries"
   
 
 [experimental]
@@ -71,4 +74,4 @@ kill_timeout = 5
     grace_period = "1s"
     interval = "15s"
     restart_limit = 0
-    timeout = "2s"
+    timeout = "5s"
