@@ -1,0 +1,70 @@
+# fly.toml file generated for casscout on 2023-01-24T09:30:25+01:00
+
+app = "casscout"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[env]
+  ENABLE = "careportal basal dbsize iob maker cob cage sage pump profile openaps override cors"
+  ALARM_TYPES = "simple"
+  ALARM_HIGH = "off"
+  ALARM_URGENT_HIGH = "off"
+  ALARM_LOW = "off"
+  ALARM_URGENT_LOW = "off"
+  BG_HIGH = "162"
+  BG_TARGET_TOP = "144"
+  BG_TARGET_BOTTOM = "72"
+  BG_LOW = "64"
+  TIME_FORMAT = "24"
+  SHOW_PLUGINS = "careportal basal dbsize iob cob cage sage bage pump profile openaps override"
+  SHOW_FORECAST = "openaps"
+  SCALE_Y = "linear"
+  BASAL_RENDER = "icicle"
+  CORS_ALLOW_ORIGIN = "*"
+  DEVICESTATUS_ADVANCED = "true"
+  SAGE_INFO = "168"
+  SAGE_WARN = "192"
+  SAGE_URGENT = "216"
+  API3_AUTOPRUNE_DEVICESTATUS = "60"
+  PUMP_WARN_RES = "60"
+  PUMP_URGENT_RES = "30"
+  DISPLAY_UNITS = "mmol"
+  CAGE_INFO = "40"
+  CAGE_WARN = "48"
+  CAGE_URGENT = "60"
+  CAGE_DISPLAY = "HOURS"
+  ALARM_TIMEAGO_WARN = "off"
+  ALARM_TIMEAGO_URGENT = "off"
+  DBSIZE_MAX = "512"
+  DBSIZE_IN_MIB = "true"
+  MONGO_COLLECTION = "entries"
+  THEME = "colors"
+
+[processes]
+  app = "node lib/server/server.js"
+
+[[services]]
+  http_checks = []
+  internal_port = 1337
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "10s"
