@@ -1,11 +1,11 @@
 # fly.toml file generated for casscout on 2023-01-24T09:30:25+01:00
 
-app = "casscouttwo"
+app = "casscout"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
 [env]
-  ENABLE = "careportal basal dbsize iob maker cob cage sage bage pump profile openaps override cors"
+  ENABLE = "careportal basal dbsize iob maker cob cage sage pump profile openaps override cors"
   ALARM_TYPES = "simple"
   ALARM_HIGH = "off"
   ALARM_URGENT_HIGH = "off"
