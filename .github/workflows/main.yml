@@ -1,4 +1,5 @@
 name: CI test and publish Docker image
+disabled: true
 
 on:
   push:
