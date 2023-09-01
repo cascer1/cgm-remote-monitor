@@ -39,7 +39,7 @@ kill_timeout = 5
   DBSIZE_IN_MIB = "true"
   MONGO_COLLECTION = "entries"
   THEME = "colors"
-  AUTH_DEFAULT_ROLES = "denied"
+  AUTH_DEFAULT_ROLES = "readable"
 
 [processes]
   app = "node lib/server/server.js"
